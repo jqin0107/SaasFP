@@ -6,6 +6,7 @@ Jingyue Qin (jq2343)
 Haoze Lin (hl3459)
 
 ## Heroku Link
+https://liontodo-162c9e4f930b.herokuapp.com
 
 ## Instructions for running the application 
 ```
