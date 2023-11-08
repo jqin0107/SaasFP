@@ -1,0 +1,40 @@
+<!--  app/views/users/show.html.erb -->
+<h2><em><%= @user.user_name %></em></h2>
+
+<ul id="details">
+  <li>
+    First name:
+    <%= @user.first_name %>
+  </li>
+  <li>
+    Second name:
+    <%= @user.last_name %>
+  </li>
+  <li>
+    Current Activities:
+    <ul>
+    <% @activities.each do |activity| %>
+        <li><%= link_to "#{activity.event_name}", activity_path(activity) %> </li>
+      <% end%>
+        </ul>
+  </li>
+
+</ul>
+
+<% if @id != @session_id then %>
+# <div class="row">
+#   <% if followed(@session_id, @id) then %>
+#   <%= link_to 'Unfollow', following_path(follower: @session_id, followee: @id), :method => 'delete', :class => 'btn btn-danger col-2' %>
+#   <% else %>
+#   <%= link_to 'Follow', following_index_path(follower: @session_id, followee: @id), :method => 'post', :class => 'btn btn-primary col-2' %>
+#   <% end %>
+# </div>
+<% end %>
+<div class="row">
+  <% if @id == @session_id then %>
+  <%= link_to 'Delete', user_path(@user), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+  <%= link_to 'Edit', edit_user_path(@user.id), :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Logout', users_logout_path, :class => 'btn btn-primary col-2' %>
+  <% end %>
+  <%= link_to 'Go back', root_path, :class => 'btn btn-secondary col-2' %>
+</div>

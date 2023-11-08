@@ -1,0 +1,59 @@
+<h2>Event Board</h2>
+
+<%= form_tag events_path, method: :get, id: 'tags_form' do %>
+  <%= hidden_field_tag 'sort_by', @sort_by %>
+
+  <div class="form-check  form-check-inline">
+    <%= label_tag "event activities", "event activities", class: 'form-check-label' %>
+    <%= check_box_tag "event_status", 'Open', @open_status, class: 'form-check-input' %>
+  </div>
+
+  Include:
+  <% @all_tags.each do |tag| %>
+    <div class="form-check  form-check-inline">
+      <%= label_tag "tags[#{tag}]", tag, class: 'form-check-label' %>
+      <%= check_box_tag "tags[#{tag}]", '1', (@tags_hash.include?(tag)),
+        class: 'form-check-input' %>
+    </div>
+  <% end %>
+  <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-primary' %>
+<% end %>
+
+<table class="table table-striped col-md-12" id="events">
+  <thead>
+    <tr>
+      <th>
+      <%= link_to 'Event Name', events_path({sort_by: 'title', ratings: @tags_to_show_hash}),
+                      id: 'name_header', class: ('bg-warning hilite' if @sort_by == 'title') %>
+      </th>
+      <th>Tag</th>
+      <th>
+      <%= link_to 'Date',
+              events_path({sort_by: 'date', ratings: @tags_to_show_hash}),
+              id: 'date_header', class: ('bg-warning hilite' if @sort_by == 'date') %>
+      </th>
+      <th>Location</th>
+      <th>Finished?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td>
+          <%= link_to "#{event.title}", event_path(event) %>
+        </td>
+        <td>
+          <%= event.tag %>
+        </td>
+        <td>
+          <%= event.date %>
+        </td>
+        <td>
+          <%= event.location %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
+<%= link_to 'Go to User profile', user_path(session[:user_id]), :class => 'btn btn-primary' %>

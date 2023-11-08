@@ -1,0 +1,15 @@
+<h2>Register</h2>
+
+<%= form_tag users_path, :class => 'form' do %>
+  <%= label :user, :user_name, 'Username', :class => 'col-form-label' %>
+  <%= text_field :user, 'user_name', :class => 'form-control' %>
+  <%= label :user, :first_name, 'First Name', :class => 'col-form-label' %>
+  <%= text_field :user, 'first_name', :class => 'form-control' %>
+  <%= label :user, :last_name, 'Last Name', :class => 'col-form-label' %>
+  <%= text_field :user, 'last_name', :class => 'form-control' %>
+  <%= label :user, :password, 'Password', :class => 'col-form-label'  %>
+  <%= password_field :user, 'password', :class => 'form-control' %>
+  <br/>
+  <%= submit_tag 'Register', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', users_path, :class => 'btn btn-secondary' %>
+<% end %>
