@@ -48,9 +48,34 @@
         <td>
           <%= event.location %>
         </td>
+        <td>
+        <%= button_tag 'Incomplete', type: 'button', 
+                       class: 'btn btn-secondary btn-sm toggle-status', 
+                       data: { completed: 'false' }, 
+                       onclick: 'toggleStatus(this)' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
 <%= link_to 'Go to User profile', user_path(session[:user_id]), :class => 'btn btn-primary' %>
+
+
+<script>
+  function toggleStatus(button) {
+    var isCompleted = button.getAttribute('data-completed') === 'true';
+    
+    if (isCompleted) {
+      button.classList.remove('btn-success');
+      button.classList.add('btn-secondary');
+      button.textContent = 'Incomplete';
+      button.setAttribute('data-completed', 'false');
+    } else {
+      button.classList.remove('btn-secondary');
+      button.classList.add('btn-success');
+      button.textContent = 'Completed';
+      button.setAttribute('data-completed', 'true');
+    }
+  }
+</script>
