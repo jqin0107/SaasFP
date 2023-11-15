@@ -7504,3 +7504,18 @@ ActiveRecord::RecordInvalid (Validation failed: Location can't be blank):
   Rendered /Users/ireneisabug/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
   Rendered /Users/ireneisabug/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
   Rendered /Users/ireneisabug/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.7ms)
+
+
+Started GET "/events/new" for ::1 at 2023-11-15 12:42:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#new as HTML
+  Rendered events/new.html.erb within layouts/application (14.4ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 295ms (Views: 288.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for ::1 at 2023-11-15 12:43:12 -0500
+Processing by EventsController#new as HTML
+  Rendered events/new.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 55ms (Views: 51.3ms | ActiveRecord: 0.0ms)

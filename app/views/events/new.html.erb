@@ -1,17 +1,19 @@
-<h2>Create New Event</h2>
+<h2 style="font-family: 'Times New Roman', Times, serif;">Create New Event</h2>
 
 <%= form_tag events_path, :class => 'form' do %>
   <%= label :event, :title, 'Title', :class => 'col-form-label' %>
-  <%= text_field :event, :title, :class => 'form-control' %>
+  <%= text_field :event, :title, :class => 'form-control col-md-6' %>
 
   <%= label :event, :tag, 'Tag', :class => 'col-form-label'  %>
-  <%= select :event, :tag, ['Computer Science', 'Speech', 'Business', 'Career Fair', 'Others'], {}, {:class => 'form-control col-1'} %>
+  <%= select :event, :tag, ['Computer Science', 'Speech', 'Business', 'Career Fair', 'Others'], {}, {:class => 'form-control col-md-3'} %>
 
   <%= label :event, :location, 'Location', :class => 'col-form-label' %>
-  <%= text_field :event, :location, :class => 'form-control' %>
+  <%= text_field :event, :location, :class => 'form-control col-md-6' %>
 
-  <%= label :event, :date, 'Date', :class => 'col-form-label'  %>
-  <%= date_select :event, :date, {}, :class => 'form-control col-2 d-inline' %>
+  <%= label :event, :date, 'Date', :class => 'col-form-label'  %><br/>
+  <%= date_select :event, :date, {}, :class => 'form-control col-md-3 d-inline' %>
+  <br/>
+  <br/>
   <br/>
   <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', events_path, :class => 'btn btn-secondary' %>
