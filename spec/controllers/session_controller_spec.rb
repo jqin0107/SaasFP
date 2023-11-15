@@ -34,4 +34,5 @@ describe SessionsController, type: :controller do
       expect(response).to redirect_to(new_session_path)
     end
   end
+
 end

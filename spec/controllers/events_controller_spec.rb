@@ -65,4 +65,19 @@ describe EventsController, type: :controller do
         end
     end
 
+    describe 'update title' do
+        it 'should update title field' do
+            get :edit, :id => Event.find_by(title: 'Midterm Study').id
+            put :update, :id => Event.find_by(title: 'Midterm Study').id, :event => {:title => 'Midterm Group Study'}
+            expect(assigns(:event).title).to eq('Midterm Group Study')
+        end
+    end
+
+    describe 'show the events board' do
+        it 'should success' do
+          get :index
+          expect(response).to have_http_status(:redirect)
+        end
+    end
+
 end
