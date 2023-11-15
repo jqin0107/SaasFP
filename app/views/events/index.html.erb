@@ -20,14 +20,14 @@
   <thead>
     <tr>
       <th class = "<%= @sort == 'title' ? 'hilite bg-warning':''%>">
-      <%= link_to 'Event Name', events_path({sort: 'title', tags: @tags_to_show}),
-                      id: 'title_header'%>
+      <%= link_to 'Event Name', events_path({'tags'=>@tags_to_show,'sort'=>'title'}),
+              :id=>'title_header'%>
       </th>
       <th>Tag</th>
-      <th>
+      <th class = "<%= @sort == 'date' ? 'hilite bg-warning':''%>">
       <%= link_to 'Date',
-              events_path({sort_by: 'date', ratings: @tags_to_show_hash}),
-              id: 'date_header', class: ('bg-warning hilite' if @sort_by == 'date') %>
+              events_path({'tags'=>@tags_to_show,'sort'=>'date'}),
+              :id=>'date_header'%>
       </th>
       <th>Location</th>
       <th>Finished?</th>

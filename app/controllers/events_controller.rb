@@ -26,8 +26,12 @@ class EventsController < ApplicationController
           session[:tags] = @tags_to_show
         end
 
-        # session['tags'] = tag_list
+        if session[:tags]
+          @tags_to_show = session[:tags]
+        end
 
+        # session['tags'] = tag_list
+        # sort----
         if params[:sort]
           @sort = params[:sort]
         else
@@ -39,12 +43,11 @@ class EventsController < ApplicationController
           end
         end
 
-        if @sort = ''
+        if @sort == ''
           @events = Event.with_tags @tags_to_show.keys
         else
           @events = Event.with_tags(@tags_to_show.keys).order(@sort + ' asc')
         end
-        #session['sort_by'] = @sort_by
 
         if !(params.has_key?(:tags) && params.has_key?(:sort))
           redirect_to events_path(:tags=>@tags_to_show,:sort=>@sort)
