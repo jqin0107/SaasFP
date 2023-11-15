@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :user_authenticate
-  before_action :force_index_redirect, only: [:index]
+  # before_action :force_index_redirect, only: [:index]
   #helper_method :get_organizor_name, :can_modify, :participated
 
       def show
@@ -11,13 +11,45 @@ class EventsController < ApplicationController
       def index
         @events = Event.all
         @all_tags = Event.all_tags
-        @events_with_tag = Event.with_tags(tag_list, sort_by)
+        # @events_with_tag = Event.with_tags(tag_list, sort_by)
 
-        @tags_hash = tags_hash
-        @sort_by = sort_by
+        # @tags_hash = tags_hash
+        #@sort_by = sort_by
 
-        session['tags'] = tag_list
-        session['sort_by'] = @sort_by
+        if params[:tags]
+          @tags_to_show = params[:tags]
+        else
+          @tags_to_show = @all_tags.map{|t| [t,1]}.to_h
+        end
+
+        if params[:commit] == 'Refresh'
+          session[:tags] = @tags_to_show
+        end
+
+        # session['tags'] = tag_list
+
+        if params[:sort]
+          @sort = params[:sort]
+        else
+          if session[:sort]
+            @sort = session[:sort]
+          else
+            @sort = ''
+            session[:sort] = ''
+          end
+        end
+
+        if @sort = ''
+          @events = Event.with_tags @tags_to_show.keys
+        else
+          @events = Event.with_tags(@tags_to_show.keys).order(@sort + ' asc')
+        end
+        #session['sort_by'] = @sort_by
+
+        if !(params.has_key?(:tags) && params.has_key?(:sort))
+          redirect_to events_path(:tags=>@tags_to_show,:sort=>@sort)
+        end
+
       end
 
 
@@ -106,26 +138,26 @@ class EventsController < ApplicationController
         return !ActivityUserRelation.where(user_id: session[:user_id], event_id: event.id).empty?
       end
 
-      def force_index_redirect
-        if !params.key?(:tags) || !params.key?(:sort_by)
-          flash.keep
-          url = events_path(sort_by: sort_by, tags: tags_hash)
-          redirect_to url
-        end
-      end
+      # def force_index_redirect
+      #   if !params.key?(:tags) || !params.key?(:sort_by)
+      #     flash.keep
+      #     url = events_path(sort_by: sort_by, tags: tags_hash)
+      #     redirect_to url
+      #   end
+      # end
 
-      def tag_list
-        params[:tags]&.keys || session[:tags] || Event.all_tags
-      end
+      # def tags_list
+      #   params[:tags]&.keys || session[:tags] || Event.all_tags
+      # end
 
 
-      def tags_hash
-        Hash[tag_list.collect { |item| [item, "1"] }]
-      end
+      # def tags_hash
+      #   Hash[tags_list.collect { |item| [item, "1"] }]
+      # end
 
-      def sort_by
-        params[:sort_by] || session[:sort_by] || 'id'
-      end
+      # def sort_by
+      #   params[:sort_by] || session[:sort_by] || 'id'
+      # end
 
       # def open_events(events)
       #   events.where(open_status: 'Open')

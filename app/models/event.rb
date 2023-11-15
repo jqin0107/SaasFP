@@ -10,7 +10,11 @@ class Event < ActiveRecord::Base
 		['Computer Science', 'Speech', 'Business', 'Career Fair', 'Others']
 	end
 
-	def self.with_tags(tag_list, sort_by)
-			Event.where("Tags in(?)", tag_list).order sort_by
+	def self.with_tags(tags_list)
+		if tags_list.nil?
+			Event.all
+		else
+			Event.where("tag in(?)", tags_list)
+		end
 	end
 end

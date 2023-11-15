@@ -1,18 +1,15 @@
 <h2>Event Board</h2>
 
 <%= form_tag events_path, method: :get, id: 'tags_form' do %>
-  <%= hidden_field_tag 'sort_by', @sort_by %>
-
   <div class="form-check  form-check-inline">
     <%= label_tag "event activities", "event activities", class: 'form-check-label' %>
     <%= check_box_tag "event_status", 'Open', @open_status, class: 'form-check-input' %>
   </div>
-
   Include:
   <% @all_tags.each do |tag| %>
     <div class="form-check  form-check-inline">
       <%= label_tag "tags[#{tag}]", tag, class: 'form-check-label' %>
-      <%= check_box_tag "tags[#{tag}]", '1', (@tags_hash.include?(tag)),
+      <%= check_box_tag "tags[#{tag}]", '1', (@tags_to_show.include?(tag)),
         class: 'form-check-input' %>
     </div>
   <% end %>
@@ -22,9 +19,9 @@
 <table class="table table-striped col-md-12" id="events">
   <thead>
     <tr>
-      <th>
-      <%= link_to 'Event Name', events_path({sort_by: 'title', ratings: @tags_to_show_hash}),
-                      id: 'name_header', class: ('bg-warning hilite' if @sort_by == 'title') %>
+      <th class = "<%= @sort == 'title' ? 'hilite bg-warning':''%>">
+      <%= link_to 'Event Name', events_path({sort: 'title', tags: @tags_to_show}),
+                      id: 'title_header'%>
       </th>
       <th>Tag</th>
       <th>
