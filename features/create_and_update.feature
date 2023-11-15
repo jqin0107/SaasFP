@@ -65,3 +65,4 @@ Scenario: delete event
     And  I fill in "Location" with ""
     And  I press "Update Event Info"
     Then the location of "Event1" should be "Lerner"
+
