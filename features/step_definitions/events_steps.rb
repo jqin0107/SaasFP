@@ -12,8 +12,12 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
 end
 
 When /I (un)?check the following tags: (.*)/ do |uncheck, tag_list|
-  tag_list.split(', ').each do |tag|
-    step %{I #{uncheck.nil? ? '' : 'un'}check "ratings_#{tag}"}
+  tag_list.split(', ').each do |r|
+    if uncheck
+      uncheck(r)
+    else
+      check(r)
+    end
   end
 end
 
