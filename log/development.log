@@ -1,0 +1,252 @@
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:38:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 274ms (Views: 266.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:38:47 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/new" for ::1 at 2023-11-15 15:38:51 -0500
+Processing by EventsController#new as HTML
+  Rendered events/new.html.erb within layouts/application (76.0ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 91ms (Views: 89.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2023-11-15 15:38:54 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:38:54 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:39:09 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?utf8=%E2%9C%93&tags%5BComputer+Science%5D=1&tags%5BCareer+Fair%5D=1&commit=Refresh" for ::1 at 2023-11-15 15:42:23 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"utf8"=>"✓", "tags"=>{"Computer Science"=>"1", "Career Fair"=>"1"}, "commit"=>"Refresh"}
+Redirected to http://localhost:3000/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:42:23 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.6ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events?utf8=%E2%9C%93&tags%5BComputer+Science%5D=1&tags%5BCareer+Fair%5D=1&commit=Refresh" for ::1 at 2023-11-15 15:42:26 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"utf8"=>"✓", "tags"=>{"Computer Science"=>"1", "Career Fair"=>"1"}, "commit"=>"Refresh"}
+Redirected to http://localhost:3000/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:42:26 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?utf8=%E2%9C%93&tags%5BComputer+Science%5D=1&tags%5BCareer+Fair%5D=1&commit=Refresh" for ::1 at 2023-11-15 15:42:27 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"utf8"=>"✓", "tags"=>{"Computer Science"=>"1", "Career Fair"=>"1"}, "commit"=>"Refresh"}
+Redirected to http://localhost:3000/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:42:27 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/3" for ::1 at 2023-11-15 15:44:44 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mActivityUserRelation Load (0.1ms)[0m  SELECT "activity_user_relations".* FROM "activity_user_relations" WHERE "activity_user_relations"."user_id" = ?  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 17.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2023-11-15 15:44:46 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+Redirected to http://localhost:3000/events
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/events" for ::1 at 2023-11-15 15:44:46 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:44:46 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:52:24 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 33.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 15:56:32 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.6ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (18.7ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    51:         <td>
+    52:         <%= button_tag 'Incompleted', type: 'button', 
+    53:                        class: 'btn btn-secondary btn-sm', 
+    54:                        id: "event-#{@event.id}-button",
+    55:                        onclick: 'toggleEventStatus(this, #{event.id})' %>
+    56:         </td>
+    57:       </tr>
+  app/views/events/index.html.erb:54:in `block in _app_views_events_index_html_erb___1525621414602540886_70243456377520'
+  app/views/events/index.html.erb:37:in `_app_views_events_index_html_erb___1525621414602540886_70243456377520'
+
+
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:00:16 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (15.8ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    51:         <td>
+    52:         <%= button_tag 'Incompleted', type: 'button', 
+    53:                        class: 'btn btn-secondary btn-sm', 
+    54:                        id: "event-#{@event.title}-button",
+    55:                        onclick: 'toggleEventStatus(this, #{event.id})' %>
+    56:         </td>
+    57:       </tr>
+  app/views/events/index.html.erb:54:in `block in _app_views_events_index_html_erb___1525621414602540886_70243721269280'
+  app/views/events/index.html.erb:37:in `_app_views_events_index_html_erb___1525621414602540886_70243721269280'
+
+
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jingyueqin/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.0ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:01:01 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (22.9ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:02:33 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:06:19 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.8ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_flash.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 35.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:06:27 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:06:29 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:06:29 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))[0m
+  Rendered events/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events?sort=&tags%5BCareer+Fair%5D=1&tags%5BComputer+Science%5D=1" for ::1 at 2023-11-15 16:06:30 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Career Fair"=>"1", "Computer Science"=>"1"}}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE (tag in('Computer Science','Career Fair'))
+  Rendered events/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 43.7ms | ActiveRecord: 0.3ms)

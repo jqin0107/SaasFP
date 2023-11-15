@@ -49,11 +49,11 @@
           <%= event.location %>
         </td>
         <td>
-        <%= button_tag 'Incomplete', type: 'button', 
-                       class: 'btn btn-secondary btn-sm toggle-status', 
-                       data: { completed: 'false' }, 
-                       onclick: 'toggleStatus(this)' %>
-        </td>
+        <%= button_tag 'Incompleted', type: 'button', 
+                       class: 'btn btn-secondary btn-sm', 
+                       id: "event-#{event.id}-button",
+                       onclick: "toggleEventStatus(this, #{event.id})" %>
+      </td>
       </tr>
     <% end %>
   </tbody>
@@ -63,19 +63,35 @@
 
 
 <script>
-  function toggleStatus(button) {
-    var isCompleted = button.getAttribute('data-completed') === 'true';
-    
+  function toggleEventStatus(button, eventId) {
+    var statusKey = 'eventStatus-' + eventId;
+    var isCompleted = localStorage.getItem(statusKey) === 'true';
+
     if (isCompleted) {
       button.classList.remove('btn-success');
       button.classList.add('btn-secondary');
-      button.textContent = 'Incomplete';
-      button.setAttribute('data-completed', 'false');
+      button.textContent = 'Incompleted';
+      localStorage.setItem(statusKey, 'false');
     } else {
       button.classList.remove('btn-secondary');
       button.classList.add('btn-success');
       button.textContent = 'Completed';
-      button.setAttribute('data-completed', 'true');
+      localStorage.setItem(statusKey, 'true');
     }
   }
+
+  // Set initial state from local storage on page load
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.btn-sm').forEach(button => {
+      var eventId = button.id.split('-')[1];
+      var statusKey = 'eventStatus-' + eventId;
+      var isCompleted = localStorage.getItem(statusKey) === 'true';
+
+      if (isCompleted) {
+        button.classList.remove('btn-secondary');
+        button.classList.add('btn-success');
+        button.textContent = 'Completed';
+      }
+    });
+  });
 </script>
