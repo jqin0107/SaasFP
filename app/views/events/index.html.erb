@@ -1,11 +1,95 @@
-<h2>Event Board</h2>
+<style>
+  body, html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .navbar {
+    background-color: #1a73e8;
+    border-bottom: none;
+  }
+
+  .title {
+    color: white;
+  }
+
+  .container {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-check-label {
+    margin-right: 15px;
+  }
+
+  .btn-primary, .btn-secondary {
+    margin: 5px 0;
+    border: none;
+  }
+
+  .btn-primary {
+    background-color: #1a73e8;
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: #e0e0e0;
+    color: #202124;
+  }
+
+  .table {
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  th {
+    font-weight: normal;
+    color: #202124;
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f5f5f5;
+  }
+
+  .table td, .table th {
+    vertical-align: middle;
+  }
+
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+  }
+
+  .btn-success {
+    color: #fff;
+    background-color: #34a853;
+    border-color: #34a853;
+  }
+
+  h2 {
+    color: #202124;
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+
+  #tags_form {
+    margin-bottom: 20px;
+  }
+
+  #tags_submit {
+    margin-top: 10px;
+  }
+</style>
+
+<h2 style="font-family: 'Times New Roman', Times, serif;">Event Board</h2>
 
 <%= form_tag events_path, method: :get, id: 'tags_form' do %>
-  <div class="form-check  form-check-inline">
-    <%= label_tag "event activities", "event activities", class: 'form-check-label' %>
-    <%= check_box_tag "event_status", 'Open', @open_status, class: 'form-check-input' %>
-  </div>
-  Include:
+
+  Events include:
   <% @all_tags.each do |tag| %>
     <div class="form-check  form-check-inline">
       <%= label_tag "tags[#{tag}]", tag, class: 'form-check-label' %>
@@ -15,7 +99,7 @@
   <% end %>
   <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-primary' %>
 <% end %>
-
+<br/>
 <table class="table table-striped col-md-12" id="events">
   <thead>
     <tr>
@@ -49,7 +133,7 @@
           <%= event.location %>
         </td>
         <td>
-        <%= button_tag 'Incompleted', type: 'button', 
+        <%= button_tag 'Incomplete', type: 'button', 
                        class: 'btn btn-secondary btn-sm', 
                        id: "event-#{event.id}-button",
                        onclick: "toggleEventStatus(this, #{event.id})" %>
@@ -58,6 +142,7 @@
     <% end %>
   </tbody>
 </table>
+<br/>
 <%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
 <%= link_to 'Go to User profile', user_path(session[:user_id]), :class => 'btn btn-primary' %>
 
@@ -70,7 +155,7 @@
     if (isCompleted) {
       button.classList.remove('btn-success');
       button.classList.add('btn-secondary');
-      button.textContent = 'Incompleted';
+      button.textContent = 'Incomplete';
       localStorage.setItem(statusKey, 'false');
     } else {
       button.classList.remove('btn-secondary');
