@@ -7,11 +7,11 @@ Feature: custmize your schedule
 Background: events in database
 
   Given the following events exist:
-  | title     | location | tag              |   date       |
-  | Event1    | Mudd     | Computer Science |   2023-11-25 |
-  | Event2    | NWC      | Speech           |   2023-11-26 |
-  | Event3    | Uris     | Business         |   2023-11-25 |
-  | Event4    | Lerner   | Career Fair      |   2023-11-11 |
+  | title     | location | tag              |   date       | open_status |
+  | Event1    | Mudd     | Computer Science |   2023-11-25 |    Close    |
+  | Event2    | NWC      | Speech           |   2023-12-26 |    Open     |
+  | Event3    | Uris     | Business         |   2023-12-25 |    Open     |
+  | Event4    | Lerner   | Career Fair      |   2023-11-11 |    Close    |
 
 Given the following users exist: 
 | user_name    | first_name | last_name | password |
@@ -36,6 +36,7 @@ Scenario: create new events with tags
   And  I fill in "Title" with "New events"
   And  I press "Save Changes"
   Then the location of "New events" should be "Mudd"
+  Then the open_status of "New events" should be "Open"
 
 Scenario: update existing events 
   When I go to the login page

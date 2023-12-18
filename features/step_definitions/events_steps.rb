@@ -37,3 +37,7 @@ end
 Then /the location of "(.*)" should be "(.*)"/ do |title, loc|
   expect(Event.find_by_title(title).location == loc)
 end
+
+Then /the open_status of "(.*)" should be "(.*)"/ do |title, s|
+  expect(Event.find_by_title(title).open_status == s)
+end

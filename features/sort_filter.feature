@@ -7,11 +7,11 @@ Feature: custmize your schedule
 Background: events in database
 
   Given the following events exist:
-  | title     | location | tag              |   date       |
-  | AEvent1    | Mudd     | Computer Science |   2023-11-25 |
-  | BEvent2    | NWC      | Speech           |   2023-11-26 |
-  | CEvent3    | Uris     | Business         |   2023-11-25 |
-  | DEvent4    | Lerner   | Career Fair      |   2023-11-11 |
+  | title     | location | tag              |   date        | open_status |
+  | AEvent1    | Mudd     | Computer Science |   2023-11-25 |    Close    |
+  | BEvent2    | NWC      | Speech           |   2023-12-26 |    Open     |
+  | CEvent3    | Uris     | Business         |   2023-12-25 |    Open     |
+  | DEvent4    | Lerner   | Career Fair      |   2023-11-11 |    Close    |
 
 Given the following users exist: 
 | user_name    | first_name | last_name | password |
