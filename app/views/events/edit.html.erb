@@ -6,6 +6,8 @@
   <%= text_field :event, 'location', :class => 'form-control' %>
   <%= label :event, :date, 'Date', :class => 'col-form-label' %>
   <%= text_field :event, 'date', :class => 'form-control' %>
+  <%= label :activity, :open_status, 'Status', :class => 'col-form-label'  %>
+  <%= select :activity, :open_status, ['Open', 'Close'], {}, {:class => 'form-control col-1'} %>
   <br/>
   <%= submit_tag 'Update Event Info', :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', events_path, :class => 'btn btn-secondary' %>

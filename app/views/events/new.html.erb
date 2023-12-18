@@ -7,6 +7,9 @@
   <%= label :event, :tag, 'Tag', :class => 'col-form-label'  %>
   <%= select :event, :tag, ['Computer Science', 'Speech', 'Business', 'Career Fair', 'Others'], {}, {:class => 'form-control col-md-3'} %>
 
+  <%= label :event, :open_status, 'Status', :class => 'col-form-label'  %>
+  <%= select :event, :open_status, ['Open', 'Close'], {}, {:class => 'form-control col-1'} %>
+
   <%= label :event, :location, 'Location', :class => 'col-form-label' %>
   <%= text_field :event, :location, :class => 'form-control col-md-6' %>
 

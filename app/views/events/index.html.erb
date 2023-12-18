@@ -114,6 +114,7 @@
               :id=>'date_header'%>
       </th>
       <th>Location</th>
+      <th>Status</th>
       <th>Finished?</th>
     </tr>
   </thead>
@@ -132,6 +133,10 @@
         <td>
           <%= event.location %>
         </td>
+        <td>
+          <%= event.open_status %>
+        </td>
+        
         <td>
         <%= button_tag 'Incomplete', type: 'button', 
                        class: 'btn btn-secondary btn-sm', 

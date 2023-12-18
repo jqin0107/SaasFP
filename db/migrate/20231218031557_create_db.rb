@@ -11,6 +11,7 @@ class CreateDb < ActiveRecord::Migration
       t.string :tag
       t.datetime :date
       t.string :location
+      t.string :open_status
       t.timestamps null: false
     end
     create_table :activity_user_relations do |t|

@@ -9,6 +9,14 @@
     Last name:
     <%= @user.last_name %>
   </li>
+  <li>
+    Current Events:
+    <ul>
+    <% @events.each do |e| %>
+        <li><%= link_to "#{e.title}", event_path(e) %> </li>
+      <% end%>
+    </ul>
+  </li>
 
 
 </ul>

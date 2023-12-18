@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20231101204210) do
+ActiveRecord::Schema.define(version: 20231218031557) do
 
   create_table "activity_user_relations", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "activity_id"
+    t.integer "event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20231101204210) do
     t.string   "tag"
     t.datetime "date"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "open_status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -16,6 +16,19 @@ class EventsController < ApplicationController
         # @tags_hash = tags_hash
         #@sort_by = sort_by
 
+        #-----------ADD-ON for final launch--------------
+        # for e in @events do
+        #   if e[:date] < Date.today
+        #     e.update(open_status:'Close')
+        #   end
+        # end
+        @events.where('date < ?', Date.today).update_all(open_status: 'Close')
+
+        @event_status = params[:event_status]
+        #------------------------------------------------
+
+
+
         if params[:tags]
           @tags_to_show = params[:tags]
         else
@@ -109,7 +122,7 @@ class EventsController < ApplicationController
       # Making "internal" methods private is not required, but is a common practice.
       # This helps make clear which methods respond to requests, and which ones do not.
       def event_params
-        params.require(:event).permit(:title, :location, :date, :tag)
+        params.require(:event).permit(:title, :location, :date, :tag, :open_status)
       end 
 
       # private
@@ -162,9 +175,9 @@ class EventsController < ApplicationController
       #   params[:sort_by] || session[:sort_by] || 'id'
       # end
 
-      # def open_events(events)
-      #   events.where(open_status: 'Open')
-      # end
+      def open_events(events)
+        events.where(open_status: 'Open')
+      end
 
 
 
