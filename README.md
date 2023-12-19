@@ -6,7 +6,7 @@ Jingyue Qin (jq2343)
 Haoze Lin (hl3459)
 
 ## Heroku Link
-https://liontodo-beea2cef4203.herokuapp.com/
+[https://liontodo-beea2cef4203.herokuapp.com/
 
 ## Github Link
 https://github.com/jqin0107/SaasFP
