@@ -2,12 +2,37 @@
   body, html {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    background: url('https://wallpapercave.com/wp/wp2710542.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
   }
   
   .navbar {
     background-color: #1a73e8;
     border-bottom: none;
   }
+  .priority-flag {
+  width: 20px; /* Set a fixed width */
+  height: 20px; /* Set a fixed height */
+  display: inline-block; /* Make sure it's inline-block to apply width and height */
+  border-radius: 10px; /* Make it round */
+  border: 1px solid #ccc;
+  background-color: transparent; /* No color by default */
+  color: black; /* The color of the flag icon */
+}
+
+.priority-low {
+  background-color: green;
+}
+
+.priority-medium {
+  background-color: yellow;
+}
+
+.priority-high {
+  background-color: red;
+}
 
   .title {
     color: white;
@@ -103,6 +128,7 @@
 <table class="table table-striped col-md-12" id="events">
   <thead>
     <tr>
+      <th>Priority</th>
       <th class = "<%= @sort == 'title' ? 'hilite bg-warning':''%>">
       <%= link_to 'Event Name', events_path({'tags'=>@tags_to_show,'sort'=>'title'}),
               :id=>'title_header'%>
@@ -121,6 +147,9 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+      <td>
+        <button class="priority-flag btn" onclick="togglePriority(this)" id="priority-<%= event.id %>"></button>
+        </td>
         <td>
           <%= link_to "#{event.title}", event_path(event) %>
         </td>
@@ -184,4 +213,50 @@
       }
     });
   });
+
+function togglePriority(button) {
+  // Remove all color classes first
+  button.classList.remove('priority-low', 'priority-medium', 'priority-high');
+
+  // Retrieve the current priority from localStorage
+  var currentPriority = localStorage.getItem(button.id);
+
+  // Determine the next priority based on the current one
+  var nextPriority;
+  switch (currentPriority) {
+    case 'priority-low':
+      nextPriority = 'priority-medium';
+      break;
+    case 'priority-medium':
+      nextPriority = 'priority-high';
+      break;
+    case 'priority-high':
+      nextPriority = ''; // This will reset to no color
+      break;
+    default:
+      nextPriority = 'priority-low';
+  }
+
+  // If there's a next priority, add the corresponding class
+  if (nextPriority) {
+    button.classList.add(nextPriority);
+  }
+
+  // Save the new priority to localStorage
+  localStorage.setItem(button.id, nextPriority);
+
+  // Log the action for debugging
+  console.log('Priority changed to:', nextPriority);
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('.priority-flag').forEach(button => {
+    var storedPriority = localStorage.getItem(button.id);
+    if (storedPriority) {
+      button.className = 'priority-flag btn ' + storedPriority; // Ensure the base classes are always applied
+    } else {
+      button.className = 'priority-flag btn'; // Apply base classes if no priority is set
+    }
+  });
+});
 </script>
